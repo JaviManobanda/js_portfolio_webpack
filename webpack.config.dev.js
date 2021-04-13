@@ -4,8 +4,10 @@ const htmlWebpackPlugin = require("html-webpack-plugin"); // se agrega el plugin
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // se agrega el plugin css
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer");
+
 //Aqui se coloca todas las configuraciones
-/* PARAMETROS
+/* PARAMETROSA
 ENTRY punto de entrada del proyecto
 RESOLVE si usas svelt u otro especifica el tipo de extensiones */
 
@@ -78,5 +80,13 @@ module.exports = {
       ],
     }),
     new Dotenv(),
+    new BundleAnalyzerPlugin(),
   ],
+
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    historyApiFallback: true,
+    port: 3000,
+  },
 };
