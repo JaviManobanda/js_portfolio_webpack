@@ -4,7 +4,8 @@ const htmlWebpackPlugin = require("html-webpack-plugin"); // se agrega el plugin
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // se agrega el plugin css
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 //Aqui se coloca todas las configuraciones
 /* PARAMETROSA
@@ -20,6 +21,7 @@ module.exports = {
   },
   mode: "development",
   watch: true,
+  devtool: "source-map",
   resolve: {
     extensions: [".js"],
     alias: {
